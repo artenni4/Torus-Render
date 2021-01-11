@@ -1,0 +1,1 @@
+g++ main.cpp -o torus.exe -luser32 -lgdi32 -lopengl32 -lgdiplus -lShlwapi -lstdc++fs -lDwmapi -static -std=c++17
