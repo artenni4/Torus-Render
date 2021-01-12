@@ -66,6 +66,10 @@ private:
 		// One full rotation around x is 2 seconds and around z is 3 seconds (fElapsedTime is in seconds)
 		A += Ak * PI * fElapsedTime;
 		B += Bk * PI * fElapsedTime;
+		if (A >= 2 * PI)
+			A -= 2 * PI;
+		if (B >= 2 * PI)
+			B -= 2 * PI;
 
 		// Precompile sines and cosines
 		float cosA = cos(A), sinA = sin(A);
@@ -149,7 +153,7 @@ public:
 int main(int argc, char* argv[])
 {
 	TorusRender render;
-	render.SetRotatingSpeed(4, 6);
+	render.SetRotatingSpeed(4.f, 6.f);
 	if (render.Construct(WINDOW_WIDTH, WINDOW_HEIGHT, 6, 6))
 		render.Start();
 
